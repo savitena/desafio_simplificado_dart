@@ -28,3 +28,46 @@ class Empresa {
   });
 }
 
+
+//classe_endereco.dart
+
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+
+class Endereco {
+  // Atributos
+
+  String? logradouro;
+  String? numero;
+  String? complemento;
+  String? bairro;
+  String? estado;
+  String? cep;
+  Endereco({
+    required this.logradouro,
+    required this.numero,
+    required this.complemento,
+    required this.bairro,
+    required this.estado,
+    required this.cep,
+  });
+}
+
+
+//classe_socio.dart
+
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:desafio_simplificado/classe_endereco.dart';
+
+class Socio {
+  // Atributos
+
+  String? nome;
+  String? cpf;
+  Endereco? dadosEndereco;
+
+  Socio({
+    required this.nome,
+    required this.cpf,
+    required this.dadosEndereco,
+  });
+}
