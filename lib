@@ -1,0 +1,30 @@
+//classe_empresa.dart
+
+import 'package:desafio_simplificado/classe_endereco.dart';
+import 'package:desafio_simplificado/classe_socio.dart';
+import 'package:uuid/uuid.dart';
+
+class Empresa {
+  // Atributos
+
+  final id = Uuid().v1();
+  final horarioCadastro = DateTime.now();
+
+  String razaoSocial;
+  String nomeFantasia;
+  String cnpj;
+  String telefone;
+
+  Socio dadosSocio;
+  Endereco dadosEndereco;
+
+  Empresa({
+    required this.nomeFantasia,
+    required this.razaoSocial,
+    required this.cnpj,
+    required this.telefone,
+    required this.dadosEndereco,
+    required this.dadosSocio,
+  });
+}
+
