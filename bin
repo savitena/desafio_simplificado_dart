@@ -1,0 +1,87 @@
+import 'dart:io';
+
+import 'package:desafio_simplificado/classe_empresa.dart';
+import 'package:desafio_simplificado/classe_endereco.dart';
+import 'package:desafio_simplificado/classe_socio.dart';
+import 'package:uuid/uuid.dart';
+
+void main(List<String> arguments) {
+  Empresa empresa1;
+
+  print('''Olá! Vamos cadastrar sua empresa! Preencha com as informações abaixo:
+  CNPJ:''');
+  final String cnpj = stdin.readLineSync()!;
+  print('''Nome fantasia:''');
+  final String nomeFantasia = stdin.readLineSync()!;
+  print('''Razão Social:''');
+  final String razaoSocial = stdin.readLineSync()!;
+  print('''Telefone:''');
+  final String telefone = stdin.readLineSync()!;
+  print('''Seu endereço completo, começando por
+  Logradouro:''');
+  final String logradouro = stdin.readLineSync()!;
+  print('''Numero:''');
+  final String numero = stdin.readLineSync()!;
+  print('''Complemento:''');
+  final String complemento = stdin.readLineSync()!;
+  print('''Bairro:''');
+  final String bairro = stdin.readLineSync()!;
+  print('''Estado:''');
+  final String estado = stdin.readLineSync()!;
+  print('''CEP:''');
+  final String cep = stdin.readLineSync()!;
+  print('''Quem é o sócio majoritário? Vamos começar pelo
+  Nome Sócio:''');
+  final String nome = stdin.readLineSync()!;
+  print('''CPF Sócio:''');
+  final String cpf = stdin.readLineSync()!;
+  print('''Qual é o endenreço completo do sócio?
+  Vamos começar pelo
+  Logradouro Sócio:''');
+  final String logradouroSocio = stdin.readLineSync()!;
+  print('''Número Sócio:''');
+  final String numeroSocio = stdin.readLineSync()!;
+  print('''Complemento de endereço Sócio:''');
+  final String complementoSocio = stdin.readLineSync()!;
+  print('''Bairro Sócio:''');
+  final String bairroSocio = stdin.readLineSync()!;
+  print('''Estado Sócio:''');
+  final String estadoSocio = stdin.readLineSync()!;
+  print('''CEP Sócio:''');
+  final String cepSocio = stdin.readLineSync()!;
+
+  empresa1 = Empresa(
+      nomeFantasia: nomeFantasia,
+      razaoSocial: razaoSocial,
+      cnpj: cnpj,
+      telefone: telefone,
+      dadosEndereco: Endereco(
+          logradouro: logradouro,
+          numero: numero,
+          complemento: complemento,
+          bairro: bairro,
+          estado: estado,
+          cep: cep),
+      dadosSocio: Socio(
+          nome: nome,
+          cpf: cpf,
+          dadosEndereco: Endereco(
+              logradouro: logradouroSocio,
+              numero: numeroSocio,
+              complemento: complementoSocio,
+              bairro: bairroSocio,
+              estado: estadoSocio,
+              cep: cepSocio)));
+
+  print('''Sua empresa foi cadastrada. Os dados são:
+  ID: ${empresa1.id}
+  CNPJ: $cnpj Data Cadastro: ${empresa1.horarioCadastro}
+  Razão Social: $razaoSocial
+  Nome Fantasia: $nomeFantasia
+  Telefone: $telefone
+  Endereço: $logradouro $numero $complemento $bairro $estado $cep
+  Sócio:
+  CPF: $cpf
+  Nome Completo: $nome
+  Endereço: $logradouroSocio $numeroSocio $complementoSocio $bairroSocio $estadoSocio $cepSocio''');
+}
